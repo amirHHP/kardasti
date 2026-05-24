@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "CoverCraft",
+  "version": "1.0.0",
+  "description": "Generate personalized AI-powered cover letters from job postings using your resume",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "CoverCraft — AI Cover Letter Generator"
+  }
+}
