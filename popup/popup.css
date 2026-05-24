@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   CoverCraft — Premium Dark Theme
+   Kardasti — Premium Dark Theme
    ═══════════════════════════════════════════════ */
 
 :root {
@@ -228,6 +228,21 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .card:hover {
+  border-color: var(--border-accent);
+}
+
+.form-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  padding: 16px 16px 4px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease;
+}
+
+.form-container:hover {
   border-color: var(--border-accent);
 }
 

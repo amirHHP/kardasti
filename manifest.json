@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "CoverCraft",
+  "name": "Kardasti",
   "version": "1.0.0",
   "description": "Generate personalized AI-powered cover letters from job postings using your resume",
   "permissions": [
@@ -19,6 +19,6 @@
   },
   "action": {
     "default_popup": "popup/popup.html",
-    "default_title": "CoverCraft — AI Cover Letter Generator"
+    "default_title": "Kardasti — AI Cover Letter Generator"
   }
 }

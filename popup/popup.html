@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CoverCraft</title>
+  <title>Kardasti</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
@@ -28,7 +28,7 @@
           </svg>
         </div>
         <div>
-          <h1 class="logo-title">CoverCraft</h1>
+          <h1 class="logo-title">Kardasti</h1>
           <p class="logo-subtitle">AI Cover Letter Generator</p>
         </div>
       </div>
@@ -44,25 +44,66 @@
   <!-- Main Content -->
   <main class="main">
 
-    <!-- API Configuration Section -->
-    <section class="card" id="apiSection">
-      <button class="card-header" id="apiToggle" type="button">
-        <span class="card-icon">🔑</span>
-        <span class="card-title">API Configuration</span>
-        <span class="card-chevron" id="apiChevron">▾</span>
-      </button>
-      <div class="card-body" id="apiBody">
-        <div class="field">
-          <label class="label" for="apiKey">API Key</label>
-          <div class="input-wrapper">
-            <input type="password" id="apiKey" class="input" placeholder="sk-..." autocomplete="off">
-            <button type="button" class="input-action" id="toggleApiKey" title="Show/hide API key">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                <path id="eyeIcon" d="M8 3C4.5 3 1.7 5.1 0.5 8c1.2 2.9 4 5 7.5 5s6.3-2.1 7.5-5c-1.2-2.9-4-5-7.5-5zm0 8.3A3.3 3.3 0 1 1 8 4.7a3.3 3.3 0 0 1 0 6.6zM8 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-              </svg>
-            </button>
+    <!-- Configuration Fields -->
+    <div class="form-container">
+      <!-- API Key Field -->
+      <div class="field">
+        <label class="label" for="apiKey">API Key</label>
+        <div class="input-wrapper">
+          <input type="password" id="apiKey" class="input" placeholder="Paste your API Key here (sk-...)" autocomplete="off">
+          <button type="button" class="input-action" id="toggleApiKey" title="Show/hide API key">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path id="eyeIcon" d="M8 3C4.5 3 1.7 5.1 0.5 8c1.2 2.9 4 5 7.5 5s6.3-2.1 7.5-5c-1.2-2.9-4-5-7.5-5zm0 8.3A3.3 3.3 0 1 1 8 4.7a3.3 3.3 0 0 1 0 6.6zM8 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Resume Field -->
+      <div class="field">
+        <label class="label">Your Resume</label>
+        <!-- File Upload Zone -->
+        <div class="upload-zone" id="uploadZone">
+          <div class="upload-icon">
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+              <path d="M20 6 L20 26 M12 14 L20 6 L28 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 26 v6 a2 2 0 0 0 2 2 h24 a2 2 0 0 0 2-2 v-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="upload-text">Drop your resume here</p>
+          <p class="upload-hint">or click to upload • PDF, TXT</p>
+          <input type="file" id="fileInput" accept=".pdf,.txt,.text" hidden>
+        </div>
+
+        <!-- Uploaded File Info -->
+        <div class="file-info" id="fileInfo" hidden>
+          <div class="file-badge">
+            <span class="file-icon">📎</span>
+            <span class="file-name" id="fileName"></span>
+            <button type="button" class="file-remove" id="removeFile" title="Remove resume">✕</button>
           </div>
         </div>
+
+        <!-- Resume Text Preview/Edit -->
+        <div class="field" id="resumeTextSection" hidden>
+          <label class="label" for="resumeText">
+            Resume Content
+            <span class="label-badge">editable</span>
+          </label>
+          <textarea id="resumeText" class="textarea" rows="6" placeholder="Your resume content will appear here…"></textarea>
+          <p class="hint">Review and edit the extracted text if needed</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advanced Settings Section -->
+    <section class="card" id="advancedSection">
+      <button class="card-header" id="advancedToggle" type="button">
+        <span class="card-icon">⚙️</span>
+        <span class="card-title">Advanced Settings</span>
+        <span class="card-chevron" id="advancedChevron">▾</span>
+      </button>
+      <div class="card-body collapsed" id="advancedBody">
         <div class="field">
           <label class="label" for="apiBaseUrl">Base URL</label>
           <input type="url" id="apiBaseUrl" class="input" placeholder="https://api.openai.com/v1" autocomplete="off">
@@ -88,48 +129,6 @@
             <input type="text" id="apiModelCustom" class="input" placeholder="e.g. gpt-4o-mini" autocomplete="off" style="margin-top:6px">
           </div>
           <p class="hint" id="modelHint">Auto-detected from API when key is set</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section class="card" id="resumeSection">
-      <button class="card-header" id="resumeToggle" type="button">
-        <span class="card-icon">📄</span>
-        <span class="card-title">Your Resume</span>
-        <span class="card-chevron" id="resumeChevron">▾</span>
-      </button>
-      <div class="card-body" id="resumeBody">
-        <!-- File Upload Zone -->
-        <div class="upload-zone" id="uploadZone">
-          <div class="upload-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <path d="M20 6 L20 26 M12 14 L20 6 L28 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M6 26 v6 a2 2 0 0 0 2 2 h24 a2 2 0 0 0 2-2 v-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <p class="upload-text">Drop your resume here</p>
-          <p class="upload-hint">or click to upload • PDF, TXT</p>
-          <input type="file" id="fileInput" accept=".pdf,.txt,.text" hidden>
-        </div>
-
-        <!-- Uploaded File Info -->
-        <div class="file-info" id="fileInfo" hidden>
-          <div class="file-badge">
-            <span class="file-icon">📎</span>
-            <span class="file-name" id="fileName"></span>
-            <button type="button" class="file-remove" id="removeFile" title="Remove resume">✕</button>
-          </div>
-        </div>
-
-        <!-- Resume Text Preview/Edit -->
-        <div class="field" id="resumeTextSection" hidden>
-          <label class="label" for="resumeText">
-            Resume Content
-            <span class="label-badge">editable</span>
-          </label>
-          <textarea id="resumeText" class="textarea" rows="8" placeholder="Your resume content will appear here…"></textarea>
-          <p class="hint">Review and edit the extracted text if needed</p>
         </div>
       </div>
     </section>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kardasti — AI-powered Chrome Extension that generates personalized cover letters from job postings using your resume, completely locally and securely.">
+  <title>Kardasti — AI Cover Letter Generator Chrome Extension</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+            <rect x="3" y="2" width="18" height="24" rx="3" stroke="url(#nav-g1)" stroke-width="2.5" fill="none"/>
+            <line x1="7" y1="8" x2="17" y2="8" stroke="url(#nav-g1)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="7" y1="12" x2="17" y2="12" stroke="url(#nav-g1)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="7" y1="16" x2="13" y2="16" stroke="url(#nav-g1)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18 14 L25 7 L27 9 L20 16 L18 16 Z" fill="url(#nav-g1)"/>
+            <defs>
+              <linearGradient id="nav-g1" x1="0" y1="0" x2="28" y2="28">
+                <stop offset="0%" stop-color="#a78bfa"/>
+                <stop offset="100%" stop-color="#6366f1"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">Kardasti</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com" class="btn-github-nav" target="_blank" rel="noopener">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          GitHub
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="badge">🚀 Chrome Extension</div>
+        <h1 class="hero-title">Craft Personalized Cover Letters in <span class="text-gradient">Seconds</span></h1>
+        <p class="hero-subtitle">
+          An AI-powered assistant that reads job postings on any webpage, references your resume, and builds tailored cover letters instantly. Complete privacy, multi-model flexibility, and zero server storage.
+        </p>
+        <div class="hero-cta">
+          <a href="#" class="btn-chrome">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M16 8a8.001 8.001 0 0 1-7.022 7.94l1.902-3.907a3.5 3.5 0 0 0 .82-1.92l4.3-1.72A7.973 7.973 0 0 1 16 8zm-8.978 7.94a8.004 8.004 0 0 1-6.963-7.61l4.498 1.499A3.5 3.5 0 0 0 8 11.5c.343 0 .67-.05.978-.142L7.022 15.94zM.059 7.424A8.002 8.002 0 0 1 7.2 0.057L5.59 4.398a3.5 3.5 0 0 0-2.457 2.457L.059 7.424zM8 4.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"/>
+            </svg>
+            Add to Chrome — It's Free
+          </a>
+          <a href="https://github.com" class="btn-secondary" target="_blank" rel="noopener">
+            View on GitHub
+          </a>
+        </div>
+        <div class="hero-meta">
+          <span>🛡️ 100% Privacy-First (Local Storage)</span>
+          <span>⚡ No Login Required</span>
+        </div>
+      </div>
+      
+      <!-- Interactive CSS Extension Mockup -->
+      <div class="hero-visual">
+        <div class="visual-glow"></div>
+        <div class="extension-mockup-container">
+          
+          <!-- Mock Job Site Window -->
+          <div class="mock-web-window">
+            <div class="window-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <div class="mock-url">linkedin.com/jobs/view/...</div>
+            </div>
+            <div class="window-body">
+              <h3 class="job-mock-title">Senior Software Engineer</h3>
+              <p class="job-mock-company">Innovative Technologies Inc. • Remote</p>
+              <div class="job-mock-desc">
+                <p>We are seeking a senior developer to join our team...</p>
+                <div class="highlightable-text" id="highlightText">
+                  Must be proficient in Node.js, JavaScript, and modern API architectures. Experience with AI integrations and chrome extensions is a strong plus. You should possess strong communication skills and be able to work independently in a fast-paced environment.
+                </div>
+                <p>To apply, please submit a cover letter and resume...</p>
+              </div>
+              
+              <!-- Interactive Trigger Button -->
+              <button type="button" class="btn-demo-trigger" id="demoTriggerBtn">
+                ⚡ Simulate Selection & Right-Click
+              </button>
+              
+              <!-- Context Menu Mock -->
+              <div class="mock-context-menu" id="mockContextMenu">
+                <div class="menu-item disabled">Copy</div>
+                <div class="menu-item disabled">Search Google for...</div>
+                <div class="menu-item active-action" id="contextMenuAction">
+                  <span class="logo-icon-small">
+                    <svg width="12" height="12" viewBox="0 0 28 28" fill="none">
+                      <rect x="3" y="2" width="18" height="24" rx="3" stroke="#a78bfa" stroke-width="3" fill="none"/>
+                      <path d="M18 14 L25 7 L27 9 L20 16 L18 16 Z" fill="#a78bfa"/>
+                    </svg>
+                  </span>
+                  Generate Cover Letter
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mock Extension Popup Window -->
+          <div class="mock-popup-window">
+            <div class="popup-header">
+              <div class="popup-logo">
+                <div class="mock-logo-icon">
+                  <svg width="18" height="18" viewBox="0 0 28 28" fill="none">
+                    <rect x="3" y="2" width="18" height="24" rx="3" stroke="url(#g-mock)" stroke-width="2" fill="none"/>
+                    <line x1="7" y1="8" x2="17" y2="8" stroke="url(#g-mock)" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="7" y1="12" x2="17" y2="12" stroke="url(#g-mock)" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="7" y1="16" x2="13" y2="16" stroke="url(#g-mock)" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M18 14 L25 7 L27 9 L20 16 L18 16 Z" fill="url(#g-mock)"/>
+                    <defs>
+                      <linearGradient id="g-mock" x1="0" y1="0" x2="28" y2="28">
+                        <stop offset="0%" stop-color="#a78bfa"/>
+                        <stop offset="100%" stop-color="#6366f1"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="popup-title">Kardasti</h4>
+                  <p class="popup-subtitle">AI Cover Letter Generator</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="popup-status-bar ready" id="mockStatusBar">
+              <div class="status-dot animate-pulse"></div>
+              <span class="status-text">Ready — right-click selected text</span>
+            </div>
+            
+            <div class="popup-body">
+              <!-- API Key Field -->
+              <div class="popup-field">
+                <div class="popup-label">API Key</div>
+                <div class="popup-input-wrapper">
+                  <div class="popup-input-masked">••••••••••••••••••••••••••••••••</div>
+                </div>
+              </div>
+              
+              <!-- Resume Field -->
+              <div class="popup-field">
+                <div class="popup-label">Your Resume</div>
+                <div class="popup-file-badge">
+                  <span class="file-icon">📎</span>
+                  <span class="file-name">John_Doe_Resume.pdf</span>
+                </div>
+              </div>
+              
+              <!-- Advanced Settings (Collapsed) -->
+              <div class="popup-card">
+                <div class="popup-card-header">
+                  <span>⚙️ Advanced Settings</span>
+                  <span>▾</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="popup-footer">
+              <div class="mock-save-btn">Save Settings</div>
+            </div>
+            
+            <!-- Toast Simulator Inside Extension -->
+            <div class="mock-toast-notification" id="mockToast">
+              <span class="toast-content" id="mockToastText">⏳ Generating cover letter…</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Propositions / Features Grid -->
+  <section class="features" id="features">
+    <div class="section-header">
+      <h2 class="section-title">Engineered for Candidates, Built for Privacy</h2>
+      <p class="section-subtitle">A professional workflow that fits right into your browser without bloating your process or leaking your data.</p>
+    </div>
+    
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+            <polyline points="2 17 12 22 22 17" />
+            <polyline points="2 12 12 17 22 12" />
+          </svg>
+        </div>
+        <h3 class="feature-title">One-Click Selection Flow</h3>
+        <p class="feature-desc">No copy-pasting back and forth. Highlight any job posting on LinkedIn, Indeed, or any career portal, right-click, and let Kardasti compose your draft instantly in the background.</p>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+        </div>
+        <h3 class="feature-title">Absolute Local Privacy</h3>
+        <p class="feature-desc">Your resume, personal details, and API keys are stored solely in your Chrome local browser storage. We have no external backend servers, meaning your confidential career history remains 100% yours.</p>
+      </div>
+      
+      <!-- Feature 3 -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+            <line x1="12" y1="22.08" x2="12" y2="12" />
+          </svg>
+        </div>
+        <h3 class="feature-title">Multi-LLM Agnostic</h3>
+        <p class="feature-desc">Connect using your own API credentials. Kardasti natively detects Google Gemini, OpenAI, Groq, or OpenRouter setups, enabling you to use cost-effective models like `gpt-4o-mini` or `gemini-1.5-flash` directly.</p>
+      </div>
+      
+      <!-- Feature 4 -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10 9 9 9 8 9" />
+          </svg>
+        </div>
+        <h3 class="feature-title">Instant Clipboard & PDF</h3>
+        <p class="feature-desc">When generation finishes, the layout engine copies the formatted text to your clipboard and compiles a clean, professional, WinAnsi Helvetica PDF document downloaded directly to your computer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-header">
+      <h2 class="section-title">Zero Friction Setup</h2>
+      <p class="section-subtitle">Get running in less than 2 minutes. Configured once, ready forever.</p>
+    </div>
+    
+    <div class="workflow-steps">
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h4 class="step-title">Install the Extension</h4>
+        <p class="step-desc">Add Kardasti to your Chrome browser from the web store. Pin it to your toolbar for easy settings access.</p>
+      </div>
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h4 class="step-title">Configure credentials</h4>
+        <p class="step-desc">Open the extension, input your LLM provider API key, and drop your resume. The settings auto-save locally.</p>
+      </div>
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h4 class="step-title">Right-Click to Generate</h4>
+        <p class="step-desc">Select job description bullet points on LinkedIn or Indeed, right-click, and choose "Generate Cover Letter".</p>
+      </div>
+      <!-- Step 4 -->
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h4 class="step-title">Apply Confidently</h4>
+        <p class="step-desc">The completed letter is copied to your clipboard and downloaded as a PDF. Fine-tune if needed, and apply!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <div class="section-header">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Clear answers to details about privacy, models, and usage.</p>
+    </div>
+    
+    <div class="faq-accordion">
+      <details>
+        <summary>Where is my resume text sent?</summary>
+        <div class="faq-content">
+          <p>Your resume text is stored locally within Chrome's sandboxed storage. It is only sent directly to the AI provider endpoint (OpenAI, Google, Groq, or OpenRouter) that you configure when you explicitly trigger the "Generate Cover Letter" context menu action. We do not operate server portals or analytics databases, ensuring absolute confidentiality.</p>
+        </div>
+      </details>
+      
+      <details>
+        <summary>Do I need to pay to use Kardasti?</summary>
+        <div class="faq-content">
+          <p>No, the Chrome extension itself is entirely free and open-source. You only need your own API key from an LLM provider. Since modern API calls are extremely cost-effective (e.g., using GPT-4o-mini costs less than $0.002 per letter), you only pay fractions of a cent directly to OpenAI or Google for the API usage.</p>
+        </div>
+      </details>
+      
+      <details>
+        <summary>How does the extension auto-detect Gemini?</summary>
+        <div class="faq-content">
+          <p>Kardasti analyzes the pattern of your API key. If the key begins with the standard Google developer key prefix (<code>AIza</code>), the popup automatically populates the base URL to point to Google's Gemini API endpoints and loads the available Gemini model families (like <code>gemini-1.5-flash</code>).</p>
+        </div>
+      </details>
+      
+      <details>
+        <summary>How is the PDF generated?</summary>
+        <div class="faq-content">
+          <p>The PDF is compiled in-memory inside the Chrome extension background worker using a lightweight, pure JavaScript PDF layout engine. It outputs standard PDF 1.4 objects without referencing heavy external UI scripts, formatting the Helvetica fonts and alignments dynamically to trigger an automatic web download.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-banner">
+    <div class="cta-card">
+      <div class="cta-glow"></div>
+      <h2 class="cta-title">Upgrade Your Job Application Workflow</h2>
+      <p class="cta-desc">Stop writing cover letters from scratch. Tailor every application to the job description while retaining 100% control and ownership of your personal data.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn-chrome">Install Kardasti Extension</a>
+        <a href="https://github.com" class="btn-outline" target="_blank" rel="noopener">Explore Source Code</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg width="18" height="18" viewBox="0 0 28 28" fill="none">
+              <rect x="3" y="2" width="18" height="24" rx="3" stroke="#a78bfa" stroke-width="2.5" fill="none"/>
+              <path d="M18 14 L25 7 L27 9 L20 16 L18 16 Z" fill="#a78bfa"/>
+            </svg>
+          </div>
+          <span class="logo-text">Kardasti</span>
+        </div>
+        <p class="footer-tagline">AI-powered, local-first cover letter builder for Chrome.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links-group">
+          <h5>Project</h5>
+          <a href="https://github.com" target="_blank" rel="noopener">GitHub Repository</a>
+          <a href="https://github.com" target="_blank" rel="noopener">License (MIT)</a>
+        </div>
+        <div class="footer-links-group">
+          <h5>Product</h5>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it Works</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Kardasti. Open-source under MIT License. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Interactive Demo Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const demoBtn = document.getElementById('demoTriggerBtn');
+      const highlightText = document.getElementById('highlightText');
+      const contextMenu = document.getElementById('mockContextMenu');
+      const menuAction = document.getElementById('contextMenuAction');
+      const toast = document.getElementById('mockToast');
+      const toastText = document.getElementById('mockToastText');
+      const statusBar = document.getElementById('mockStatusBar');
+
+      let isAnimating = false;
+
+      demoBtn.addEventListener('click', () => {
+        if (isAnimating) return;
+        isAnimating = true;
+        demoBtn.disabled = true;
+
+        // Step 1: Simulate text highlighting
+        highlightText.classList.add('highlighted');
+        
+        setTimeout(() => {
+          // Step 2: Show context menu near the selection
+          contextMenu.classList.add('visible');
+          
+          setTimeout(() => {
+            // Step 3: Trigger context menu selection effect
+            menuAction.classList.add('hovered');
+            
+            setTimeout(() => {
+              // Hide context menu, start extension generation effect
+              contextMenu.classList.remove('visible');
+              menuAction.classList.remove('hovered');
+              
+              // Change status bar to generating
+              statusBar.className = 'popup-status-bar generating';
+              statusBar.querySelector('.status-text').textContent = 'Generating PDF…';
+              
+              // Show loader toast
+              toastText.textContent = '⏳ Generating cover letter…';
+              toast.className = 'mock-toast-notification visible loading';
+              
+              setTimeout(() => {
+                // Change toast to success
+                toastText.textContent = '✅ Cover letter copied & PDF downloaded!';
+                toast.className = 'mock-toast-notification visible success';
+                
+                // Change status bar back to ready
+                statusBar.className = 'popup-status-bar ready';
+                statusBar.querySelector('.status-text').textContent = 'Ready — right-click selected text';
+                
+                // Trigger page download visual indicator (subtle pulse on body)
+                document.querySelector('.extension-mockup-container').classList.add('download-success');
+
+                setTimeout(() => {
+                  // Reset animation state
+                  highlightText.classList.remove('highlighted');
+                  toast.classList.remove('visible');
+                  document.querySelector('.extension-mockup-container').classList.remove('download-success');
+                  isAnimating = false;
+                  demoBtn.disabled = false;
+                }, 4000);
+
+              }, 3000);
+
+            }, 800);
+          }, 1000);
+        }, 800);
+      });
+    });
+  </script>
+</body>
+</html>

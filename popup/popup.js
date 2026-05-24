@@ -1,5 +1,5 @@
 /**
- * CoverCraft — Popup Script
+ * Kardasti — Popup Script
  *
  * Handles:
  *  - Loading/saving settings from chrome.storage.local
@@ -47,12 +47,9 @@ const els = {
   statusText: $('#statusText'),
 
   // Collapsible sections
-  apiToggle: $('#apiToggle'),
-  apiBody: $('#apiBody'),
-  apiChevron: $('#apiChevron'),
-  resumeToggle: $('#resumeToggle'),
-  resumeBody: $('#resumeBody'),
-  resumeChevron: $('#resumeChevron'),
+  advancedToggle: $('#advancedToggle'),
+  advancedBody: $('#advancedBody'),
+  advancedChevron: $('#advancedChevron'),
 };
 
 // Debounce timer for API key input
@@ -168,8 +165,7 @@ function setupEventListeners() {
   });
 
   // Collapsible sections
-  setupCollapsible(els.apiToggle, els.apiBody, els.apiChevron);
-  setupCollapsible(els.resumeToggle, els.resumeBody, els.resumeChevron);
+  setupCollapsible(els.advancedToggle, els.advancedBody, els.advancedChevron);
 
   // File upload — click
   els.uploadZone.addEventListener('click', () => els.fileInput.click());

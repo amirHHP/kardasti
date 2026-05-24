@@ -1,5 +1,5 @@
 /**
- * CoverCraft — Service Worker
+ * Kardasti — Service Worker
  *
  * Handles context menu creation, AI API calls, clipboard copy,
  * PDF generation & download, and toast notifications.
@@ -67,12 +67,12 @@ async function handleGenerateCoverLetter(selectionText, tab) {
     ]);
 
     if (!apiKey) {
-      await showToast(tab.id, '🔑 Please set your API key in CoverCraft settings', 'error');
+      await showToast(tab.id, '🔑 Please set your API key in Kardasti settings', 'error');
       return;
     }
 
     if (!resumeText) {
-      await showToast(tab.id, '📄 Please upload your resume in CoverCraft settings', 'error');
+      await showToast(tab.id, '📄 Please upload your resume in Kardasti settings', 'error');
       return;
     }
 
@@ -89,7 +89,7 @@ async function handleGenerateCoverLetter(selectionText, tab) {
     await showToast(tab.id, '✅ Cover letter copied to clipboard & PDF downloaded!', 'success');
 
   } catch (err) {
-    console.error('CoverCraft error:', err);
+    console.error('Kardasti error:', err);
     const errorMsg = err.message.length > 120
       ? err.message.substring(0, 120) + '…'
       : err.message;
@@ -232,11 +232,11 @@ async function showToast(tabId, message, type = 'info') {
     await chrome.scripting.executeScript({
       target: { tabId },
       func: (msg, toastType) => {
-        // Remove any existing CoverCraft toasts
-        document.querySelectorAll('.covercraft-toast').forEach(el => el.remove());
+        // Remove any existing Kardasti toasts
+        document.querySelectorAll('.kardasti-toast').forEach(el => el.remove());
 
         const toast = document.createElement('div');
-        toast.className = 'covercraft-toast';
+        toast.className = 'kardasti-toast';
 
         const gradients = {
           loading: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
